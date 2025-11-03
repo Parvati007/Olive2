@@ -1,18 +1,15 @@
 {
   "builds": [
     {
-      "src": "oliveedge/wsgi.py",
-      "use": "@vercel/python"
+      "src": "wsgi.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "15mb" }
     }
   ],
   "routes": [
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
       "src": "/(.*)",
-      "dest": "oliveedge/wsgi.py"
+      "dest": "wsgi.py"
     }
   ]
 }
